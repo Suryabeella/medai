@@ -136,8 +136,10 @@ def upload():
         file.save(filepath)
 
         extracted_text = extract_text(filepath)
+        print("EXTRACTED TEXT:", repr(extracted_text), flush=True)
 
         medicines = extract_medicine_names(extracted_text)
+        print("MEDICINES:", medicines, flush=True)
 
         results = []
 
