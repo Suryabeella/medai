@@ -4,7 +4,7 @@ from werkzeug.utils import secure_filename
 
 from medicine_ai import get_medicine_info
 
-from config import UPLOAD_FOLDER, RESULT_FOLDER, ALLOWED_EXTENSIONS
+
 
 from database import (
     create_tables,
@@ -18,6 +18,15 @@ from ocr import extract_text
 from extract_medicine import extract_medicine_names
 from search_serper import search_medicine
 from scraper import scrape_apollo
+
+from config import (
+    UPLOAD_FOLDER,
+    RESULT_FOLDER,
+    ALLOWED_EXTENSIONS,
+    MISTRAL_API_KEY,
+)
+
+print("MISTRAL_API_KEY loaded:", bool(MISTRAL_API_KEY))
 
 
 app = Flask(__name__)
