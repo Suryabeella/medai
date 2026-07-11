@@ -16,6 +16,8 @@ def clean_medicine_name(name):
 
 
 def extract_medicine_names(text):
+    print("OCR TEXT:")
+    print(text)
     medicines = []
 
     for raw_line in text.splitlines():
