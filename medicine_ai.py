@@ -4,6 +4,7 @@ import re
 
 
 def get_medicine_info(medicine_name):
+    print("medicine_ai key:", repr(MISTRAL_API_KEY))
     if not MISTRAL_API_KEY:
         return "Mistral API key missing."
 
