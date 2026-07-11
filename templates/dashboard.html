@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>MediAI Dashboard</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/dashboard.css') }}">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+
+            <i class="fa-solid fa-heart-pulse"></i>
+
+            <h2>MediAI</h2>
+
+        </div>
+
+        <ul>
+
+            <li class="active">
+
+                <a href="{{ url_for('dashboard') }}">
+
+                    <i class="fa-solid fa-house"></i>
+
+                    Dashboard
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a href="{{ url_for('upload') }}">
+
+                    <i class="fa-solid fa-cloud-arrow-up"></i>
+
+                    Upload Prescription
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a href="{{ url_for('availability') }}">
+
+                    <i class="fa-solid fa-capsules"></i>
+
+                    Medicine Availability
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a href="#">
+
+                    <i class="fa-solid fa-chart-line"></i>
+
+                    AI Analysis
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a href="{{ url_for('logout') }}">
+
+                    <i class="fa-solid fa-right-from-bracket"></i>
+
+                    Logout
+
+                </a>
+
+            </li>
+
+        </ul>
+
+    </aside>
+
+    <!-- ================= MAIN CONTENT ================= -->
+
+    <main class="main-content">
+
+        <!-- TOPBAR -->
+
+        <div class="topbar">
+
+    <div class="topbar-left">
+        <h1>Welcome, {{ username }} 👋</h1>
+        <p>AI-Based Prescription Understanding System</p>
+    </div>
+
+    <div class="profile-wrapper">
+
+        <i class="fa-solid fa-bell"></i>
+
+        <div class="profile" id="profileBtn">
+
+            <div class="profile-avatar">
+                {{ username[0]|upper }}
+            </div>
+
+            <div class="profile-info">
+                <h4>{{ username }}</h4>
+                <p>{{ email }}</p>
+            </div>
+
+        </div>
+
+        <div class="profile-dropdown" id="profileDropdown">
+
+            <h3>{{ username }}</h3>
+            <p>{{ email }}</p>
+
+            <hr>
+
+            <a href="{{ url_for('dashboard') }}">
+                <i class="fa-solid fa-user"></i>
+                My Profile
+            </a>
+
+            <a href="{{ url_for('logout') }}">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                Logout
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+        <!-- WELCOME CARD -->
+
+        <div class="welcome-card">
+
+            <h2>
+
+                Welcome to MediAI
+
+            </h2>
+
+            <p>
+
+                Upload prescriptions, analyze medicines using Artificial
+                Intelligence, and check medicine availability from trusted
+                online pharmacies in real time.
+
+            </p>
+
+        </div>
+                <!-- ================= QUICK STATS ================= -->
+
+        <div class="quick-stats">
+
+            <div class="stat">
+
+                <i class="fa-solid fa-file-medical"></i>
+
+                <h2>250+</h2>
+
+                <p>Prescriptions Analyzed</p>
+
+            </div>
+
+            <div class="stat">
+
+                <i class="fa-solid fa-pills"></i>
+
+                <h2>10K+</h2>
+
+                <p>Medicines Identified</p>
+
+            </div>
+
+            <div class="stat">
+
+                <i class="fa-solid fa-hospital"></i>
+
+                <h2>4</h2>
+
+                <p>Trusted Pharmacies</p>
+
+            </div>
+
+            <div class="stat">
+
+                <i class="fa-solid fa-brain"></i>
+
+                <h2>99%</h2>
+
+                <p>AI Accuracy</p>
+
+            </div>
+
+        </div>
+
+        <!-- ================= FEATURE CARDS ================= -->
+
+        <div class="cards">
+
+            <!-- Upload Prescription -->
+
+            <a href="{{ url_for('upload') }}" class="card">
+
+                <i class="fa-solid fa-cloud-arrow-up"></i>
+
+                <h3>Upload Prescription</h3>
+
+                <p>
+
+                    Upload handwritten or printed prescription images for
+                    intelligent OCR processing.
+
+                </p>
+
+            </a>
+
+            <!-- AI Analysis -->
+
+            <a href="#" class="card">
+
+                <i class="fa-solid fa-robot"></i>
+
+                <h3>AI Analysis</h3>
+
+                <p>
+
+                    View medicine advantages, limitations, warnings and
+                    AI-generated healthcare information.
+
+                </p>
+
+            </a>
+
+            <!-- Availability -->
+
+            <a href="{{ url_for('availability') }}" class="card">
+
+                <i class="fa-solid fa-capsules"></i>
+
+                <h3>Medicine Availability</h3>
+
+                <p>
+
+                    Check medicine availability across Apollo,
+                    Tata 1mg, NetMeds and PharmEasy.
+
+                </p>
+
+            </a>
+
+            <!-- History -->
+
+            <a href="#" class="card">
+
+                <i class="fa-solid fa-clock-rotate-left"></i>
+
+                <h3>History</h3>
+
+                <p>
+
+                    Access previously analyzed prescriptions and
+                    medicine reports.
+
+                </p>
+
+            </a>
+
+        </div>
+
+        <!-- ================= RECENT ACTIVITY ================= -->
+
+        <div class="activity">
+
+            <h2>
+
+                <i class="fa-solid fa-chart-line"></i>
+
+                Recent Activity
+
+            </h2>
+
+            <ul>
+
+                <li>
+
+                    ✅ Successfully logged into MediAI dashboard.
+
+                </li>
+
+                <li>
+
+                    📄 Upload your prescription to begin AI analysis.
+
+                </li>
+
+                <li>
+
+                    🤖 OCR extracts medicine names automatically.
+
+                </li>
+
+                <li>
+
+                    💊 Compare medicine availability in trusted pharmacies.
+
+                </li>
+
+                <li>
+
+                    🩺 AI provides medicine advantages, limitations and warnings.
+
+                </li>
+
+            </ul>
+
+        </div>
+
+    </main>
+
+</div>
+
+<script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+
+</body>
+
+</html>

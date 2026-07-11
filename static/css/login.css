@@ -1,0 +1,693 @@
+/*=====================================
+        LOGIN PAGE
+======================================*/
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Poppins",sans-serif;
+}
+
+body{
+
+    background:linear-gradient(135deg,#ecfdf5,#d1fae5);
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+/*=====================================
+        CONTAINER
+======================================*/
+
+.container{
+
+    width:90%;
+
+    max-width:1300px;
+
+    min-height:720px;
+
+    background:#ffffff;
+
+    border-radius:25px;
+
+    overflow:hidden;
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    box-shadow:0 25px 60px rgba(0,0,0,.18);
+
+}
+
+/*=====================================
+        LEFT PANEL
+======================================*/
+
+.left {
+    position: relative;
+    background:
+        linear-gradient(
+            rgba(5, 150, 105, 0.78),
+            rgba(5, 150, 105, 0.78)
+        ),
+        url("../images/login-bg.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    color: white;
+    padding: 60px;
+}
+
+.left-content {
+    max-width: 520px;
+    z-index: 2;
+}
+
+.left-content h1 {
+    font-size: 48px;
+    margin-bottom: 30px;
+    font-weight: 800;
+}
+
+.left-content p {
+    font-size: 22px;
+    line-height: 42px;
+    font-weight: 500;
+}
+
+/*=====================================
+        FLOATING IMAGE
+======================================*/
+
+@keyframes float{
+
+0%{
+
+transform:translateY(0px);
+
+}
+
+50%{
+
+transform:translateY(-18px);
+
+}
+
+100%{
+
+transform:translateY(0px);
+
+}
+
+}
+
+/*=====================================
+        RIGHT PANEL
+======================================*/
+
+.right{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:#ffffff;
+
+    padding:50px;
+
+}
+
+.login-card{
+
+    width:100%;
+
+    max-width:430px;
+
+}
+
+.login-card h2{
+
+    font-size:40px;
+
+    color:#111827;
+
+    margin-bottom:10px;
+
+}
+
+.login-card p{
+
+    color:#6b7280;
+
+    margin-bottom:35px;
+
+}
+/*=====================================
+        INPUT BOXES
+======================================*/
+
+.input-box{
+
+    position:relative;
+
+    margin-bottom:22px;
+
+}
+
+.input-box input{
+
+    width:100%;
+
+    padding:16px 50px;
+
+    border:2px solid #d1d5db;
+
+    border-radius:14px;
+
+    outline:none;
+
+    font-size:16px;
+
+    transition:.3s;
+
+    background:#ffffff;
+
+}
+
+.input-box input:focus{
+
+    border-color:#059669;
+
+    box-shadow:0 0 0 4px rgba(16,185,129,.15);
+
+}
+
+.input-box i:first-child{
+
+    position:absolute;
+
+    left:18px;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    color:#059669;
+
+    font-size:18px;
+
+}
+
+.toggle{
+
+    position:absolute;
+
+    right:18px;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    cursor:pointer;
+
+    color:#6b7280;
+
+    transition:.3s;
+
+}
+
+.toggle:hover{
+
+    color:#059669;
+
+}
+
+/*=====================================
+        OPTIONS
+======================================*/
+
+.options{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:30px;
+
+    font-size:15px;
+
+}
+
+.options label{
+
+    color:#374151;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+}
+
+.options input{
+
+    accent-color:#059669;
+
+}
+
+.options a{
+
+    color:#059669;
+
+    text-decoration:none;
+
+    font-weight:600;
+
+}
+
+.options a:hover{
+
+    text-decoration:underline;
+
+}
+
+/*=====================================
+        LOGIN BUTTON
+======================================*/
+
+button{
+
+    width:100%;
+
+    padding:16px;
+
+    border:none;
+
+    border-radius:14px;
+
+    background:linear-gradient(135deg,#059669,#10b981);
+
+    color:#ffffff;
+
+    font-size:17px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.35s;
+
+    box-shadow:0 10px 25px rgba(16,185,129,.25);
+
+}
+
+button i{
+
+    margin-right:10px;
+
+}
+
+button:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:0 18px 35px rgba(16,185,129,.30);
+
+}
+
+/*=====================================
+            OR DIVIDER
+======================================*/
+
+.or{
+
+    margin:35px 0;
+
+    text-align:center;
+
+    position:relative;
+
+}
+
+.or::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    top:50%;
+
+    width:100%;
+
+    height:1px;
+
+    background:#d1d5db;
+
+}
+
+.or span{
+
+    position:relative;
+
+    background:#ffffff;
+
+    padding:0 18px;
+
+    color:#6b7280;
+
+    font-weight:600;
+
+}
+
+/*=====================================
+        REGISTER BUTTON
+======================================*/
+
+.register{
+
+    display:block;
+
+    text-align:center;
+
+    padding:15px;
+
+    border:2px solid #059669;
+
+    border-radius:14px;
+
+    color:#059669;
+
+    font-weight:600;
+
+    text-decoration:none;
+
+    transition:.3s;
+
+}
+
+.register:hover{
+
+    background:#059669;
+
+    color:#ffffff;
+
+}
+/*=====================================
+        CARD ANIMATION
+======================================*/
+
+.login-card{
+
+    animation:fadeUp 1s ease;
+
+}
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(50px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/*=====================================
+        INPUT HOVER EFFECT
+======================================*/
+
+.input-box input:hover{
+
+    border-color:#10b981;
+
+}
+
+.input-box input::placeholder{
+
+    color:#9ca3af;
+
+}
+
+/*=====================================
+        CUSTOM CHECKBOX
+======================================*/
+
+.options input[type="checkbox"]{
+
+    width:18px;
+
+    height:18px;
+
+    cursor:pointer;
+
+}
+
+/*=====================================
+        BUTTON ACTIVE
+======================================*/
+
+button:active{
+
+    transform:scale(.98);
+
+}
+
+/*=====================================
+        REGISTER ACTIVE
+======================================*/
+
+.register:active{
+
+    transform:scale(.98);
+
+}
+
+/*=====================================
+        SCROLLBAR
+======================================*/
+
+::-webkit-scrollbar{
+
+    width:8px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#d1fae5;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#10b981;
+
+    border-radius:20px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:#059669;
+
+}
+
+/*=====================================
+        TABLET
+======================================*/
+
+@media(max-width:992px){
+
+.container{
+
+    width:95%;
+
+    min-height:auto;
+
+}
+
+.left{
+
+    padding:40px;
+
+}
+
+.left img{
+
+    width:280px;
+
+}
+
+.left h1{
+
+    font-size:36px;
+
+}
+
+.left h3{
+
+    font-size:20px;
+
+}
+
+.right{
+
+    padding:35px;
+
+}
+
+.login-card h2{
+
+    font-size:34px;
+
+}
+
+}
+
+/*=====================================
+        MOBILE
+======================================*/
+
+@media(max-width:768px){
+
+.container{
+
+    grid-template-columns:1fr;
+
+}
+
+.left{
+
+    display:none;
+
+}
+
+.right{
+
+    padding:30px;
+
+}
+
+.login-card{
+
+    max-width:100%;
+
+}
+
+.login-card h2{
+
+    font-size:30px;
+
+}
+
+.options{
+
+    flex-direction:column;
+
+    align-items:flex-start;
+
+    gap:15px;
+
+}
+
+button{
+
+    padding:15px;
+
+}
+
+}
+
+/*=====================================
+        SMALL MOBILE
+======================================*/
+
+@media(max-width:480px){
+
+body{
+
+    padding:15px;
+
+}
+
+.container{
+
+    border-radius:18px;
+
+}
+
+.right{
+
+    padding:20px;
+
+}
+
+.login-card h2{
+
+    font-size:28px;
+
+}
+
+.login-card p{
+
+    font-size:14px;
+
+}
+
+.input-box input{
+
+    padding:14px 45px;
+
+    font-size:15px;
+
+}
+
+button{
+
+    font-size:15px;
+
+}
+
+.register{
+
+    font-size:15px;
+
+}
+
+}

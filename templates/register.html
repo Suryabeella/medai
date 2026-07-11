@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>MediAI | Register</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/register.css') }}">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- LEFT SIDE -->
+
+    <div class="left">
+
+        <img src="{{ url_for('static', filename='images/hero-doctor.png') }}"
+             alt="Doctor">
+
+        <h1>Create Account</h1>
+
+        <p>
+
+            Join MediAI and experience AI-powered prescription understanding,
+            medicine analysis and real-time medicine availability.
+
+        </p>
+
+    </div>
+
+    <!-- RIGHT SIDE -->
+
+    <div class="right">
+
+        <div class="register-card">
+
+            <h2>Create Account</h2>
+
+            <p>
+
+                Fill the details below
+
+            </p>
+
+            <form
+                id="registerForm"
+                method="POST"
+                action="{{ url_for('register') }}">
+
+                <!-- NAME -->
+
+                <div class="input-box">
+
+                    <i class="fa-solid fa-user"></i>
+
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        placeholder="Full Name"
+                        required>
+
+                </div>
+
+                <!-- EMAIL -->
+
+                <div class="input-box">
+
+                    <i class="fa-solid fa-envelope"></i>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Email Address"
+                        required>
+
+                </div>
+
+                <!-- PASSWORD -->
+
+                <div class="input-box">
+
+                    <i class="fa-solid fa-lock"></i>
+
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Password"
+                        required>
+
+                    <i class="fa-solid fa-eye toggle"
+                       id="togglePassword"></i>
+
+                </div>
+
+                <!-- CONFIRM PASSWORD -->
+
+                <div class="input-box">
+
+                    <i class="fa-solid fa-lock"></i>
+
+                    <input
+                        type="password"
+                        id="confirmPassword"
+                        placeholder="Confirm Password"
+                        required>
+
+                </div>
+
+                <!-- PASSWORD STRENGTH -->
+
+                <div class="strength">
+
+                    <div class="strength-bar">
+
+                        <div id="strengthFill"></div>
+
+                    </div>
+
+                    <span id="strengthText">
+
+                        Password Strength
+
+                    </span>
+
+                </div>
+
+                <button type="submit">
+
+                    <i class="fa-solid fa-user-plus"></i>
+
+                    Create Account
+
+                </button>
+
+            </form>
+
+            <div class="login-link">
+
+                Already have an account?
+
+                <a href="{{ url_for('login') }}">
+
+                    Login
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="{{ url_for('static', filename='js/register.js') }}"></script>
+
+</body>
+
+</html>

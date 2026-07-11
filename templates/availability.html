@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>MediAI | Medicine Availability</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/availability.css') }}">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- HEADER -->
+
+    <div class="header">
+
+        <div>
+
+            <h1>
+
+                <i class="fa-solid fa-capsules"></i>
+
+                Medicine Availability
+
+            </h1>
+
+            <p>
+
+                Search and compare medicine availability from trusted online pharmacies.
+
+            </p>
+
+        </div>
+
+        <a href="{{ url_for('dashboard') }}">
+
+            <button class="dashboard-btn">
+
+                <i class="fa-solid fa-house"></i>
+
+                Dashboard
+
+            </button>
+
+        </a>
+
+    </div>
+
+    <!-- SEARCH -->
+
+    <div class="search-box">
+
+        <i class="fa-solid fa-magnifying-glass"></i>
+
+        <input
+
+            type="text"
+
+            id="searchMedicine"
+
+            placeholder="Search medicine...">
+
+    </div>
+
+    <!-- TABLE -->
+
+    <div class="table-container">
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>Medicine</th>
+
+                    <th>Price</th>
+
+                    <th>Availability</th>
+
+                    <th>Manufacturer</th>
+
+                    <th>Pharmacy</th>
+
+                    <th>Action</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                {% for medicine in medicines %}
+
+                <tr>
+
+                    <td>{{ medicine.medicine_name }}</td>
+
+                    <td>{{ medicine.price }}</td>
+
+                    <td>
+
+                        <span class="status">
+
+                            {{ medicine.availability }}
+
+                        </span>
+
+                    </td>
+
+                    <td>{{ medicine.manufacturer }}</td>
+
+                    <td>{{ medicine.pharmacy }}</td>
+
+                    <td>
+
+                        <a href="{{ medicine.product_url }}"
+                           target="_blank">
+
+                            <button class="view-btn">
+
+                                View
+
+                            </button>
+
+                        </a>
+
+                    </td>
+
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+        <!-- ================= SUMMARY ================= -->
+
+    <div class="summary">
+
+        <div class="summary-card">
+
+            <i class="fa-solid fa-capsules"></i>
+
+            <h3>Total Medicines</h3>
+
+            <h2>{{ medicines|length }}</h2>
+
+        </div>
+
+        <div class="summary-card">
+
+            <i class="fa-solid fa-circle-check"></i>
+
+            <h3>Available</h3>
+
+            <h2>
+
+                {{ medicines
+                    | selectattr("availability","equalto","Available")
+                    | list
+                    | length }}
+
+            </h2>
+
+        </div>
+
+        <div class="summary-card">
+
+            <i class="fa-solid fa-hospital"></i>
+
+            <h3>Pharmacies</h3>
+
+            <h2>4</h2>
+
+        </div>
+
+    </div>
+
+    <!-- ================= PHARMACY INFO ================= -->
+
+    <div class="pharmacy-section">
+
+        <h2>
+
+            <i class="fa-solid fa-store"></i>
+
+            Trusted Pharmacy Partners
+
+        </h2>
+
+        <div class="pharmacy-grid">
+
+            <div class="pharmacy-card">
+
+                <i class="fa-solid fa-clinic-medical"></i>
+
+                <h3>Apollo Pharmacy</h3>
+
+                <p>Fast medicine delivery with nationwide availability.</p>
+
+            </div>
+
+            <div class="pharmacy-card">
+
+                <i class="fa-solid fa-prescription-bottle-medical"></i>
+
+                <h3>Tata 1mg</h3>
+
+                <p>Online medicine ordering with verified products.</p>
+
+            </div>
+
+            <div class="pharmacy-card">
+
+                <i class="fa-solid fa-truck-medical"></i>
+
+                <h3>NetMeds</h3>
+
+                <p>Trusted online pharmacy for healthcare products.</p>
+
+            </div>
+
+            <div class="pharmacy-card">
+
+                <i class="fa-solid fa-notes-medical"></i>
+
+                <h3>PharmEasy</h3>
+
+                <p>Compare medicine prices from trusted pharmacies.</p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- ================= BUTTONS ================= -->
+
+    <div class="bottom-buttons">
+
+        <a href="{{ url_for('upload') }}">
+
+            <button class="refresh-btn">
+
+                <i class="fa-solid fa-rotate-right"></i>
+
+                Check Another Prescription
+
+            </button>
+
+        </a>
+
+        <a href="{{ url_for('dashboard') }}">
+
+            <button class="back-btn">
+
+                <i class="fa-solid fa-arrow-left"></i>
+
+                Back to Dashboard
+
+            </button>
+
+        </a>
+
+    </div>
+
+</div>
+
+<script src="{{ url_for('static', filename='js/availability.js') }}"></script>
+
+</body>
+
+</html>

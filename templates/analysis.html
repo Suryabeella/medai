@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>MediAI | Analysis Result</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/analysis.css') }}">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="analysis-card">
+
+    <!-- ================= TITLE ================= -->
+
+    <div class="title">
+
+        <i class="fa-solid fa-file-waveform"></i>
+
+        <div>
+
+            <h1>Prescription Analysis Report</h1>
+
+            <p class="subtitle">
+
+                AI Powered Intelligent Prescription Understanding
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <!-- ================= STATUS ================= -->
+
+    <div class="status success">
+
+        <i class="fa-solid fa-circle-check"></i>
+
+        Prescription successfully analyzed.
+
+    </div>
+
+    <!-- ================= OCR RESULT ================= -->
+
+    <div class="section">
+
+        <h2>
+
+            <i class="fa-solid fa-file-lines"></i>
+
+            Extracted Prescription Text
+
+        </h2>
+
+        <div class="ocr-box">
+
+            <textarea readonly>
+
+{{ extracted_text }}
+
+            </textarea>
+
+        </div>
+
+    </div>
+
+    <!-- ================= MEDICINES ================= -->
+
+    <div class="section">
+
+        <h2>
+
+            <i class="fa-solid fa-pills"></i>
+
+            Medicine Analysis
+
+        </h2>
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>Medicine</th>
+
+                    <th>Price</th>
+
+                    <th>Availability</th>
+
+                    <th>Pharmacy</th>
+
+                    <th>Details</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                {% for medicine in medicines %}
+
+                <tr>
+
+                    <td>
+
+                        {{ medicine.medicine_name }}
+
+                    </td>
+
+                    <td>
+
+                        {{ medicine.price }}
+
+                    </td>
+
+                    <td>
+
+                        <span class="available">
+
+                            {{ medicine.availability }}
+
+                        </span>
+
+                    </td>
+
+                    <td>
+
+                        {{ medicine.pharmacy }}
+
+                    </td>
+
+                    <td>
+
+                        {% if medicine.id %}
+
+                        <a href="/medicine/{{ medicine.id }}">
+
+                            <button>
+
+                                View
+
+                            </button>
+
+                        </a>
+
+                        {% else %}
+
+                        <a href="{{ medicine.product_url }}"
+                           target="_blank">
+
+                            <button>
+
+                                Open
+
+                            </button>
+
+                        </a>
+
+                        {% endif %}
+
+                    </td>
+
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+        <!-- ================= AI MEDICINE INFORMATION ================= -->
+
+    {% for medicine in medicines %}
+
+    <div class="ai-card">
+
+        <div class="ai-header">
+
+            <i class="fa-solid fa-robot"></i>
+
+            <h2>
+
+                AI Information -
+                {{ medicine.medicine_name }}
+
+            </h2>
+
+        </div>
+
+        <div class="ai-grid">
+
+            <!-- Advantages -->
+
+            <div class="info-box advantages">
+
+                <h3>
+
+                    ✅ Advantages
+
+                </h3>
+
+                <div class="content">
+
+                    {% if medicine.ai_info %}
+
+                        {{ medicine.ai_info
+                            | replace('\n','<br>')
+                            | safe }}
+
+                    {% else %}
+
+                        No AI information available.
+
+                    {% endif %}
+
+                </div>
+
+            </div>
+
+            <!-- Availability -->
+
+            <div class="info-box availability">
+
+                <h3>
+
+                    💊 Availability
+
+                </h3>
+
+                <p>
+
+                    <strong>Status :</strong>
+
+                    {{ medicine.availability }}
+
+                </p>
+
+                <p>
+
+                    <strong>Price :</strong>
+
+                    {{ medicine.price }}
+
+                </p>
+
+                <p>
+
+                    <strong>Manufacturer :</strong>
+
+                    {{ medicine.manufacturer }}
+
+                </p>
+
+                <p>
+
+                    <strong>Pharmacy :</strong>
+
+                    {{ medicine.pharmacy }}
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    {% endfor %}
+
+    <!-- ================= SUMMARY ================= -->
+
+    <div class="summary">
+
+        <div class="summary-card">
+
+            <i class="fa-solid fa-file-medical"></i>
+
+            <h3>
+
+                Medicines Found
+
+            </h3>
+
+            <h2>
+
+                {{ medicines|length }}
+
+            </h2>
+
+        </div>
+
+        <div class="summary-card">
+
+            <i class="fa-solid fa-brain"></i>
+
+            <h3>
+
+                AI Status
+
+            </h3>
+
+            <h2>
+
+                Completed
+
+            </h2>
+
+        </div>
+
+        <div class="summary-card">
+
+            <i class="fa-solid fa-circle-check"></i>
+
+            <h3>
+
+                OCR
+
+            </h3>
+
+            <h2>
+
+                Success
+
+            </h2>
+
+        </div>
+
+    </div>
+
+    <!-- ================= BUTTONS ================= -->
+
+    <div class="bottom-buttons">
+
+        <a href="{{ url_for('upload') }}">
+
+            <button class="upload-btn">
+
+                <i class="fa-solid fa-cloud-arrow-up"></i>
+
+                Analyze Another Prescription
+
+            </button>
+
+        </a>
+
+        <a href="{{ url_for('dashboard') }}">
+
+            <button class="dashboard-btn">
+
+                <i class="fa-solid fa-house"></i>
+
+                Dashboard
+
+            </button>
+
+        </a>
+
+    </div>
+
+</div>
+
+</div>
+
+<script src="{{ url_for('static', filename='js/analysis.js') }}"></script>
+
+</body>
+
+</html>

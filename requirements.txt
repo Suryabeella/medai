@@ -1,0 +1,12 @@
+Flask
+Flask-Cors
+opencv-python
+numpy
+pillow
+pytesseract
+requests
+beautifulsoup4
+lxml
+pandas
+google-generativeai
+python-dotenv

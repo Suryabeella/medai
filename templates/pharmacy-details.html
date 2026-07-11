@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>MediAI | Medicine Details</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/pharmacy-details.css') }}">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- HEADER -->
+
+    <div class="header">
+
+        <div>
+
+            <h1>
+
+                <i class="fa-solid fa-capsules"></i>
+
+                Medicine Details
+
+            </h1>
+
+            <p>
+
+                Complete AI-generated medicine information and pharmacy details.
+
+            </p>
+
+        </div>
+
+        <a href="{{ url_for('availability') }}">
+
+            <button class="back-btn">
+
+                <i class="fa-solid fa-arrow-left"></i>
+
+                Back
+
+            </button>
+
+        </a>
+
+    </div>
+
+    <!-- MEDICINE CARD -->
+
+    <div class="medicine-card">
+
+        <div class="medicine-icon">
+
+            <i class="fa-solid fa-pills"></i>
+
+        </div>
+
+        <div class="medicine-info">
+
+            <h2>{{ medicine.medicine_name }}</h2>
+
+            <p>
+
+                AI-generated information about the selected medicine.
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <!-- INFO GRID -->
+
+    <div class="info-grid">
+
+        <div class="info-box">
+
+            <h3>
+
+                💰 Price
+
+            </h3>
+
+            <p>
+
+                {{ medicine.price }}
+
+            </p>
+
+        </div>
+
+        <div class="info-box">
+
+            <h3>
+
+                🏥 Pharmacy
+
+            </h3>
+
+            <p>
+
+                {{ medicine.pharmacy }}
+
+            </p>
+
+        </div>
+
+        <div class="info-box">
+
+            <h3>
+
+                🏭 Manufacturer
+
+            </h3>
+
+            <p>
+
+                {{ medicine.manufacturer }}
+
+            </p>
+
+        </div>
+
+        <div class="info-box">
+
+            <h3>
+
+                📦 Availability
+
+            </h3>
+
+            <span class="status">
+
+                {{ medicine.availability }}
+
+            </span>
+
+        </div>
+
+    </div>
+
+    <!-- AI INFORMATION -->
+
+    <div class="ai-section">
+
+        <h2>
+
+            <i class="fa-solid fa-robot"></i>
+
+            AI Medicine Information
+
+        </h2>
+                <div class="ai-grid">
+
+            <!-- Advantages -->
+
+            <div class="ai-card advantages">
+
+                <h3>
+
+                    ✅ Advantages
+
+                </h3>
+
+                <div class="content">
+
+                    {% if medicine.ai_info %}
+
+                        {{ medicine.ai_info
+                            | replace('\n','<br>')
+                            | safe }}
+
+                    {% else %}
+
+                        No AI information available.
+
+                    {% endif %}
+
+                </div>
+
+            </div>
+
+            <!-- Medicine Details -->
+
+            <div class="ai-card details">
+
+                <h3>
+
+                    💊 Medicine Details
+
+                </h3>
+
+                <p>
+
+                    <strong>Name :</strong>
+
+                    {{ medicine.medicine_name }}
+
+                </p>
+
+                <p>
+
+                    <strong>Price :</strong>
+
+                    {{ medicine.price }}
+
+                </p>
+
+                <p>
+
+                    <strong>Availability :</strong>
+
+                    {{ medicine.availability }}
+
+                </p>
+
+                <p>
+
+                    <strong>Manufacturer :</strong>
+
+                    {{ medicine.manufacturer }}
+
+                </p>
+
+                <p>
+
+                    <strong>Pharmacy :</strong>
+
+                    {{ medicine.pharmacy }}
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- ACTION BUTTONS -->
+
+    <div class="button-group">
+
+        <a href="{{ medicine.product_url }}"
+           target="_blank">
+
+            <button class="buy-btn">
+
+                <i class="fa-solid fa-cart-shopping"></i>
+
+                Buy Now
+
+            </button>
+
+        </a>
+
+        <button
+            onclick="window.print()"
+            class="print-btn">
+
+            <i class="fa-solid fa-print"></i>
+
+            Print Report
+
+        </button>
+
+        <button
+            onclick="downloadReport()"
+            class="download-btn">
+
+            <i class="fa-solid fa-download"></i>
+
+            Download PDF
+
+        </button>
+
+        <a href="{{ url_for('dashboard') }}">
+
+            <button class="dashboard-btn">
+
+                <i class="fa-solid fa-house"></i>
+
+                Dashboard
+
+            </button>
+
+        </a>
+
+    </div>
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <hr>
+
+        <p>
+
+            © 2026 MediAI - AI Based Intelligent Prescription Understanding &
+            Real-Time Medicine Availability System
+
+        </p>
+
+    </footer>
+
+</div>
+
+<script src="{{ url_for('static', filename='js/pharmacy-details.js') }}"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,565 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>MediAI Healthcare</title>
+
+    <!-- CSS -->
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/home.css') }}"
+    />
+
+    <!-- Google Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+  </head>
+
+  <body>
+    <!-- ================= NAVBAR ================= -->
+
+    <header>
+      <nav class="navbar">
+        <div class="logo">
+          <i class="fa-solid fa-heart-pulse"></i>
+          <h2>MediAI</h2>
+        </div>
+
+        <ul class="menu">
+          <li><a href="/">Home</a></li>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#workflow">Workflow</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="{{ url_for('login') }}">Login</a></li>
+          <li>
+            <a class="register-btn" href="{{ url_for('register') }}">
+              Register
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- ================= HERO SECTION ================= -->
+
+    <section class="hero">
+      <div class="hero-left">
+        <span class="tagline">
+          <i class="fa-solid fa-robot"></i>
+          AI Powered Healthcare
+        </span>
+
+        <h1>
+          AI Powered
+          <span>Prescription</span>
+          Understanding System
+        </h1>
+
+        <p>
+          Upload handwritten prescriptions, extract medicine details using AI,
+          and instantly check real-time medicine availability from trusted
+          online pharmacies.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="{{ url_for('login') }}" class="btn-primary">
+            Get Started
+          </a>
+
+          <a href="#features" class="btn-secondary">
+            Explore Features
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <img
+          src="{{ url_for('static', filename='images/hero-doctor.png') }}"
+          alt="MediAI Doctor Illustration"
+        />
+      </div>
+    </section>
+    <!-- ================= FEATURES ================= -->
+
+<section class="features" id="features">
+
+    <div class="section-title">
+
+        <h2>Our Smart Features</h2>
+
+        <p>
+            Advanced AI technologies designed to simplify prescription
+            understanding and improve healthcare accessibility.
+        </p>
+
+    </div>
+
+    <div class="feature-grid">
+
+        <div class="feature-card">
+
+            <div class="icon">
+                <i class="fa-solid fa-file-medical"></i>
+            </div>
+
+            <h3>Prescription Upload</h3>
+
+            <p>
+                Upload handwritten or printed prescriptions securely for
+                instant processing.
+            </p>
+
+        </div>
+
+        <div class="feature-card">
+
+            <div class="icon">
+                <i class="fa-solid fa-eye"></i>
+            </div>
+
+            <h3>OCR Extraction</h3>
+
+            <p>
+                AI-powered OCR extracts medicine names accurately from
+                prescriptions.
+            </p>
+
+        </div>
+
+        <div class="feature-card">
+
+            <div class="icon">
+                <i class="fa-solid fa-brain"></i>
+            </div>
+
+            <h3>AI Medicine Analysis</h3>
+
+            <p>
+                Understand medicine usage, advantages, limitations and safety
+                warnings instantly.
+            </p>
+
+        </div>
+
+        <div class="feature-card">
+
+            <div class="icon">
+                <i class="fa-solid fa-capsules"></i>
+            </div>
+
+            <h3>Medicine Availability</h3>
+
+            <p>
+                Search trusted online pharmacies and compare medicine
+                availability in real time.
+            </p>
+
+        </div>
+
+        <div class="feature-card">
+
+            <div class="icon">
+                <i class="fa-solid fa-hospital"></i>
+            </div>
+
+            <h3>Trusted Pharmacies</h3>
+
+            <p>
+                Apollo Pharmacy, Tata 1mg, NetMeds and PharmEasy integration.
+            </p>
+
+        </div>
+
+        <div class="feature-card">
+
+            <div class="icon">
+                <i class="fa-solid fa-shield-heart"></i>
+            </div>
+
+            <h3>Secure Healthcare</h3>
+
+            <p>
+                Patient prescription information is processed securely with
+                privacy protection.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= WORKFLOW ================= -->
+
+<section class="workflow" id="workflow">
+
+    <div class="section-title">
+
+        <h2>How MediAI Works</h2>
+
+        <p>
+            Complete intelligent prescription understanding workflow
+        </p>
+
+    </div>
+
+    <div class="workflow-container">
+
+        <div class="step">
+
+            <div class="circle">1</div>
+
+            <h3>Upload</h3>
+
+            <p>Upload Prescription Image</p>
+
+        </div>
+
+        <div class="arrow">
+            <i class="fa-solid fa-arrow-right"></i>
+        </div>
+
+        <div class="step">
+
+            <div class="circle">2</div>
+
+            <h3>OCR</h3>
+
+            <p>Extract Prescription Text</p>
+
+        </div>
+
+        <div class="arrow">
+            <i class="fa-solid fa-arrow-right"></i>
+        </div>
+
+        <div class="step">
+
+            <div class="circle">3</div>
+
+            <h3>AI</h3>
+
+            <p>Medicine Identification</p>
+
+        </div>
+
+        <div class="arrow">
+            <i class="fa-solid fa-arrow-right"></i>
+        </div>
+
+        <div class="step">
+
+            <div class="circle">4</div>
+
+            <h3>Availability</h3>
+
+            <p>Search Online Pharmacies</p>
+
+        </div>
+
+        <div class="arrow">
+            <i class="fa-solid fa-arrow-right"></i>
+        </div>
+
+        <div class="step">
+
+            <div class="circle">5</div>
+
+            <h3>Results</h3>
+
+            <p>View Medicine Details</p>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- ================= ABOUT ================= -->
+
+<section class="about" id="about">
+
+    <div class="about-left">
+
+        <img
+            src="{{ url_for('static', filename='images/about.png') }}"
+            alt="About MediAI"
+        >
+
+    </div>
+
+    <div class="about-right">
+
+        <span class="section-tag">
+            About MediAI
+        </span>
+
+        <h2>
+            AI-Based Intelligent Prescription Understanding &
+            Real-Time Medicine Availability System
+        </h2>
+
+        <p>
+
+            MediAI is an intelligent healthcare platform developed to assist
+            patients and healthcare professionals in understanding handwritten
+            prescriptions quickly and accurately.
+
+        </p>
+
+        <p>
+
+            The system combines Optical Character Recognition (OCR),
+            Artificial Intelligence, Medicine Name Correction,
+            and Real-Time Online Pharmacy Search to provide complete
+            medicine information within seconds.
+
+        </p>
+
+        <div class="about-list">
+
+            <div class="about-item">
+
+                <i class="fa-solid fa-circle-check"></i>
+
+                <span>OCR Based Prescription Reading</span>
+
+            </div>
+
+            <div class="about-item">
+
+                <i class="fa-solid fa-circle-check"></i>
+
+                <span>AI Medicine Information</span>
+
+            </div>
+
+            <div class="about-item">
+
+                <i class="fa-solid fa-circle-check"></i>
+
+                <span>Real-Time Medicine Availability</span>
+
+            </div>
+
+            <div class="about-item">
+
+                <i class="fa-solid fa-circle-check"></i>
+
+                <span>Trusted Pharmacy Search</span>
+
+            </div>
+
+            <div class="about-item">
+
+                <i class="fa-solid fa-circle-check"></i>
+
+                <span>Fast & Secure Healthcare</span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= COUNTER ================= -->
+
+<section class="counter">
+
+    <div class="counter-box">
+
+        <h2>95%</h2>
+
+        <p>OCR Accuracy</p>
+
+    </div>
+
+    <div class="counter-box">
+
+        <h2>10K+</h2>
+
+        <p>Medicine Database</p>
+
+    </div>
+
+    <div class="counter-box">
+
+        <h2>4</h2>
+
+        <p>Online Pharmacies</p>
+
+    </div>
+
+    <div class="counter-box">
+
+        <h2>24/7</h2>
+
+        <p>AI Assistance</p>
+
+    </div>
+
+</section>
+
+<!-- ================= WHY CHOOSE ================= -->
+
+<section class="choose">
+
+    <div class="section-title">
+
+        <h2>Why Choose MediAI?</h2>
+
+        <p>
+            Designed to improve healthcare accessibility through Artificial Intelligence.
+        </p>
+
+    </div>
+
+    <div class="choose-grid">
+
+        <div class="choose-card">
+
+            <i class="fa-solid fa-bolt"></i>
+
+            <h3>Fast Processing</h3>
+
+            <p>
+
+                Prescription analysis completes within a few seconds.
+
+            </p>
+
+        </div>
+
+        <div class="choose-card">
+
+            <i class="fa-solid fa-user-doctor"></i>
+
+            <h3>Healthcare Focused</h3>
+
+            <p>
+
+                Built specifically for prescription understanding.
+
+            </p>
+
+        </div>
+
+        <div class="choose-card">
+
+            <i class="fa-solid fa-lock"></i>
+
+            <h3>Secure Platform</h3>
+
+            <p>
+
+                User information remains protected and confidential.
+
+            </p>
+
+        </div>
+
+        <div class="choose-card">
+
+            <i class="fa-solid fa-globe"></i>
+
+            <h3>Online Pharmacy Search</h3>
+
+            <p>
+
+                Compare availability across trusted pharmacies instantly.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <div class="footer-container">
+
+        <div class="footer-left">
+
+            <h2>
+
+                <i class="fa-solid fa-heart-pulse"></i>
+
+                MediAI
+
+            </h2>
+
+            <p>
+
+                AI-Based Intelligent Prescription Understanding &
+                Real-Time Medicine Availability System.
+
+            </p>
+
+        </div>
+
+        <div class="footer-center">
+
+            <h3>Quick Links</h3>
+
+            <a href="/">Home</a>
+
+            <a href="#features">Features</a>
+
+            <a href="#workflow">Workflow</a>
+
+            <a href="#about">About</a>
+
+        </div>
+
+        <div class="footer-right">
+
+            <h3>Technology</h3>
+
+            <p>Flask</p>
+
+            <p>OCR</p>
+
+            <p>Artificial Intelligence</p>
+
+            <p>Web Scraping</p>
+
+        </div>
+
+    </div>
+
+    <hr>
+
+    <p class="copyright">
+
+        © 2026 MediAI | AI Powered Healthcare Platform
+
+    </p>
+
+</footer>
+
+<!-- Scroll Top -->
+
+<a href="#" class="scroll-top">
+
+    <i class="fa-solid fa-arrow-up"></i>
+
+</a>
+
+</body>
+
+</html>

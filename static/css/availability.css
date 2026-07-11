@@ -1,0 +1,708 @@
+/*=========================================
+        AVAILABILITY PAGE
+=========================================*/
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Poppins",sans-serif;
+}
+
+body{
+
+    background:linear-gradient(135deg,#ecfdf5,#d1fae5);
+
+    min-height:100vh;
+
+    padding:40px;
+
+}
+
+/*=========================================
+        CONTAINER
+=========================================*/
+
+.container{
+
+    max-width:1450px;
+
+    margin:auto;
+
+}
+
+/*=========================================
+        HEADER
+=========================================*/
+
+.header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:35px;
+
+}
+
+.header h1{
+
+    font-size:40px;
+
+    color:#111827;
+
+    margin-bottom:10px;
+
+}
+
+.header h1 i{
+
+    color:#059669;
+
+    margin-right:10px;
+
+}
+
+.header p{
+
+    color:#6b7280;
+
+    font-size:17px;
+
+}
+
+/*=========================================
+        DASHBOARD BUTTON
+=========================================*/
+
+.dashboard-btn{
+
+    border:none;
+
+    padding:15px 30px;
+
+    background:#2563eb;
+
+    color:white;
+
+    border-radius:14px;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    transition:.35s;
+
+}
+
+.dashboard-btn:hover{
+
+    background:#1d4ed8;
+
+    transform:translateY(-3px);
+
+}
+
+/*=========================================
+        SEARCH BOX
+=========================================*/
+
+.search-box{
+
+    background:white;
+
+    border-radius:18px;
+
+    padding:18px 25px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+    box-shadow:0 12px 30px rgba(0,0,0,.08);
+
+    margin-bottom:35px;
+
+}
+
+.search-box i{
+
+    color:#10b981;
+
+    font-size:22px;
+
+}
+
+.search-box input{
+
+    width:100%;
+
+    border:none;
+
+    outline:none;
+
+    font-size:17px;
+
+    color:#374151;
+
+}
+
+.search-box input::placeholder{
+
+    color:#9ca3af;
+
+}
+/*=========================================
+        TABLE
+=========================================*/
+
+.table-container{
+
+    background:#ffffff;
+
+    border-radius:22px;
+
+    overflow:hidden;
+
+    box-shadow:0 12px 30px rgba(0,0,0,.08);
+
+    margin-bottom:40px;
+
+}
+
+table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+}
+
+thead{
+
+    background:linear-gradient(135deg,#059669,#10b981);
+
+}
+
+thead th{
+
+    color:#ffffff;
+
+    padding:18px;
+
+    font-size:16px;
+
+    text-align:center;
+
+}
+
+tbody tr{
+
+    transition:.35s;
+
+}
+
+tbody tr:nth-child(even){
+
+    background:#f9fffb;
+
+}
+
+tbody tr:hover{
+
+    background:#dcfce7;
+
+}
+
+tbody td{
+
+    padding:18px;
+
+    text-align:center;
+
+    color:#374151;
+
+    border-bottom:1px solid #e5e7eb;
+
+}
+
+/*=========================================
+        STATUS
+=========================================*/
+
+.status{
+
+    display:inline-block;
+
+    padding:8px 18px;
+
+    border-radius:25px;
+
+    background:#dcfce7;
+
+    color:#047857;
+
+    font-size:14px;
+
+    font-weight:600;
+
+}
+
+/*=========================================
+        VIEW BUTTON
+=========================================*/
+
+.view-btn{
+
+    border:none;
+
+    background:#2563eb;
+
+    color:white;
+
+    padding:10px 22px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.view-btn:hover{
+
+    background:#1d4ed8;
+
+    transform:translateY(-2px);
+
+}
+
+/*=========================================
+        SUMMARY
+=========================================*/
+
+.summary{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+
+    gap:25px;
+
+    margin-bottom:40px;
+
+}
+
+.summary-card{
+
+    background:#ffffff;
+
+    border-radius:20px;
+
+    padding:30px;
+
+    text-align:center;
+
+    box-shadow:0 12px 30px rgba(0,0,0,.08);
+
+    transition:.35s;
+
+}
+
+.summary-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:0 18px 35px rgba(16,185,129,.20);
+
+}
+
+.summary-card i{
+
+    font-size:48px;
+
+    color:#10b981;
+
+    margin-bottom:18px;
+
+}
+
+.summary-card h3{
+
+    color:#374151;
+
+    margin-bottom:10px;
+
+}
+
+.summary-card h2{
+
+    color:#111827;
+
+    font-size:32px;
+
+}
+
+/*=========================================
+        PHARMACY SECTION
+=========================================*/
+
+.pharmacy-section{
+
+    margin-bottom:45px;
+
+}
+
+.pharmacy-section h2{
+
+    margin-bottom:25px;
+
+    color:#111827;
+
+}
+
+.pharmacy-section h2 i{
+
+    color:#059669;
+
+    margin-right:10px;
+
+}
+
+.pharmacy-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+
+    gap:25px;
+
+}
+
+.pharmacy-card{
+
+    background:#ffffff;
+
+    padding:30px;
+
+    border-radius:20px;
+
+    text-align:center;
+
+    box-shadow:0 12px 30px rgba(0,0,0,.08);
+
+    transition:.35s;
+
+}
+
+.pharmacy-card:hover{
+
+    transform:translateY(-10px);
+
+    box-shadow:0 18px 35px rgba(16,185,129,.20);
+
+}
+
+.pharmacy-card i{
+
+    font-size:50px;
+
+    color:#10b981;
+
+    margin-bottom:20px;
+
+}
+
+.pharmacy-card h3{
+
+    margin-bottom:15px;
+
+    color:#111827;
+
+}
+
+.pharmacy-card p{
+
+    color:#6b7280;
+
+    line-height:28px;
+
+}
+/*=========================================
+        BOTTOM BUTTONS
+=========================================*/
+
+.bottom-buttons{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:20px;
+
+    flex-wrap:wrap;
+
+    margin-top:40px;
+
+}
+
+.bottom-buttons a{
+
+    text-decoration:none;
+
+}
+
+.bottom-buttons button{
+
+    border:none;
+
+    padding:16px 35px;
+
+    border-radius:14px;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    transition:.35s;
+
+}
+
+.refresh-btn{
+
+    background:linear-gradient(135deg,#059669,#10b981);
+
+    color:white;
+
+    box-shadow:0 10px 25px rgba(16,185,129,.25);
+
+}
+
+.refresh-btn:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:0 18px 35px rgba(16,185,129,.30);
+
+}
+
+.back-btn{
+
+    background:#2563eb;
+
+    color:white;
+
+    box-shadow:0 10px 25px rgba(37,99,235,.20);
+
+}
+
+.back-btn:hover{
+
+    background:#1d4ed8;
+
+    transform:translateY(-3px);
+
+}
+
+/*=========================================
+        ANIMATIONS
+=========================================*/
+
+.summary-card,
+.pharmacy-card,
+.table-container{
+
+    animation:fadeUp .8s ease;
+
+}
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(30px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/*=========================================
+        SCROLLBAR
+=========================================*/
+
+::-webkit-scrollbar{
+
+    width:8px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#d1fae5;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#10b981;
+
+    border-radius:20px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:#047857;
+
+}
+
+/*=========================================
+        TABLET
+=========================================*/
+
+@media(max-width:992px){
+
+.header{
+
+flex-direction:column;
+
+align-items:flex-start;
+
+gap:20px;
+
+}
+
+.header h1{
+
+font-size:34px;
+
+}
+
+.summary{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+.pharmacy-grid{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+}
+
+/*=========================================
+        MOBILE
+=========================================*/
+
+@media(max-width:768px){
+
+body{
+
+padding:20px;
+
+}
+
+.table-container{
+
+overflow-x:auto;
+
+}
+
+table{
+
+min-width:900px;
+
+}
+
+.summary{
+
+grid-template-columns:1fr;
+
+}
+
+.pharmacy-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.bottom-buttons{
+
+flex-direction:column;
+
+}
+
+.bottom-buttons button{
+
+width:100%;
+
+}
+
+}
+
+/*=========================================
+        SMALL MOBILE
+=========================================*/
+
+@media(max-width:480px){
+
+.header h1{
+
+font-size:28px;
+
+}
+
+.header p{
+
+font-size:15px;
+
+}
+
+.search-box{
+
+padding:14px 18px;
+
+}
+
+.search-box input{
+
+font-size:15px;
+
+}
+
+.summary-card{
+
+padding:22px;
+
+}
+
+.pharmacy-card{
+
+padding:22px;
+
+}
+
+}
