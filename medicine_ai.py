@@ -1,6 +1,6 @@
 import requests
 from config import MISTRAL_API_KEY
-print("medicine_ai key loaded:", bool(MISTRAL_API_KEY), flush=True)
+print("MISTRAL_API_KEY =", repr(MISTRAL_API_KEY), flush=True)
 import re
 
 
