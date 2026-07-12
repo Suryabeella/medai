@@ -8,9 +8,10 @@ def clean_medicine_name(name):
     name = re.sub(r"^(tab|tablet|cap|capsule|syp|syrup|inj)\.?\s*", "", name, flags=re.I)
     name = re.sub(r"\b(morning|afternoon|night|days|day|before|after|food)\b", "", name, flags=re.I)
     name = re.sub(r"\b(od|bd|tds|qid|hs|sos|x|v|y|jf)\b", "", name, flags=re.I)
-    name = re.sub(r"\bimg\b", "", name, flags=re.I)  # OCR error
+    name = re.sub(r"\bimg\b", "", name, flags=re.I)
     name = re.sub(r"\d+\s*(mg|ml|mcg|g)?", "", name, flags=re.I)
     name = re.sub(r"[^A-Za-z+\- ]", " ", name)
+    name = re.sub(r"\b[A-Za-z]\b", "", name)  # remove OCR junk letters
     name = re.sub(r"\s+", " ", name).strip()
 
     return name
@@ -22,8 +23,10 @@ def extract_medicine_names(text):
 
     medicines = []
 
-    skip_words = ["fatty acid", "capsules", "morning",
-                  "afternoon", "night", "medicine"]
+    skip_words = {
+        "fatty acid", "capsules", "morning", "afternoon",
+        "night", "medicine", "anti-inflamentary"
+    }
 
     for raw_line in text.splitlines():
         line = raw_line.strip()
@@ -37,7 +40,6 @@ def extract_medicine_names(text):
                ["next visit", "signature", "doctor", "date"]):
             continue
 
-        # Accept serial numbers like 1, l, I
         if re.match(r"^\s*(\d+|[lI])\s+", line):
             line = re.sub(r"^\s*(\d+|[lI])\s+", "", line)
 
